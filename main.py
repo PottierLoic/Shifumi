@@ -1,31 +1,35 @@
 from tkinter import *
+from PIL import Image, ImageTk
 from constants import *
 from game import Game
-
 
 def draw():
     canvas.delete("all")
     for scissor in g.scissors:
-        canvas.create_rectangle(scissor.x-SIZE/2, scissor.y - SIZE/2, scissor.x + SIZE/2, scissor.y + SIZE/2, fill="red")
+        canvas.create_image(scissor.x, scissor.y, image=scissorsImg, anchor=CENTER)
     for paper in g.papers:
-        canvas.create_rectangle(paper.x-SIZE/2, paper.y - SIZE/2, paper.x + SIZE/2, paper.y + SIZE/2, fill="blue")
+        canvas.create_image(paper.x, paper.y, image=paperImg, anchor=CENTER)
     for rock in g.rocks:
-        canvas.create_rectangle(rock.x-SIZE/2, rock.y - SIZE/2, rock.x + SIZE/2, rock.y + SIZE/2, fill="yellow")
+        canvas.create_image(rock.x, rock.y, image=rockImg, anchor=CENTER)
+    g.quadtree.draw(canvas)
 
-def update():
+def frame():
     draw()
     g.update()
-    window.after(1000, update)
+    window.after(1, frame)
 
 window = Tk()
 window.title("Shi Fu Mi battle royale")
-
 canvas = Canvas(window, bg=BACKGROUND_COLOR, height=HEIGHT, width=WIDTH)
 canvas.pack()
-
 window.update()
 
-g = Game(20)
-update()
+rockImg = ImageTk.PhotoImage(Image.open("img/rock.png"))
+paperImg = ImageTk.PhotoImage(Image.open("img/paper.png"))
+scissorsImg = ImageTk.PhotoImage(Image.open("img/scissors.png"))
+
+g = Game(300)
+
+frame()
 
 window.mainloop()

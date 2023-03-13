@@ -89,7 +89,7 @@ class Node:
             self.southeast.query(range, found)
             self.southwest.query(range, found)
 
-    def draw(self, canvas, xoffset=0, yoffset=0):
+    def draw(self, canvas):
         """
         Draw the node.
         
@@ -97,9 +97,9 @@ class Node:
                 canvas (Canvas): canvas where we want the rectangles to be drawed.
                 xoffset, yoffset (int): offset needed for the canvas to display in the center of the screen.
         """
-        self.boundary.draw(canvas, xoffset, yoffset)
+        self.boundary.draw(canvas)
         if self.divided:
-            self.northeast.draw(canvas, xoffset, yoffset)
-            self.northwest.draw(canvas, xoffset, yoffset)
-            self.southeast.draw(canvas, xoffset, yoffset)
-            self.southwest.draw(canvas, xoffset, yoffset)
+            self.northeast.draw(canvas)
+            self.northwest.draw(canvas)
+            self.southeast.draw(canvas)
+            self.southwest.draw(canvas)

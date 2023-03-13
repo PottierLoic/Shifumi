@@ -48,7 +48,7 @@ class Rect:
                     range.y - range.h > self.y + self.h or
                     range.y + range.h < self.y - self.h)
     
-    def draw(self, canvas, xoffset=0, yoffset=0):
+    def draw(self, canvas):
         """
         Draw the rectangle.
 
@@ -56,4 +56,4 @@ class Rect:
                 canvas (Canvas): canvas where we want the rectangles to be drawed.
                 xoffset, yoffset (int): offset needed for the canvas to display in the center of the screen.
         """
-        canvas.create_rectangle(self.x-self.w - xoffset, self.y-self.h - yoffset, self.x+self.w - xoffset, self.y+self.h - yoffset, outline="red")
+        canvas.create_rectangle(self.x-self.w, self.y-self.h, self.x+self.w, self.y+self.h, outline="red")

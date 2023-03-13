@@ -39,7 +39,7 @@ class QuadTree:
         """
         self.root.query(range, found)
 
-    def draw(self, canvas, xoffset=0, yoffset=0):
+    def draw(self, canvas):
         """
         Draw the quadtree.
         
@@ -47,4 +47,4 @@ class QuadTree:
                 canvas (Canvas): canvas where we want the rectangles to be drawed.
                 xoffset, yoffset (int): offset needed for the canvas to display in the center of the screen.
         """
-        self.root.draw(canvas, xoffset, yoffset)
+        self.root.draw(canvas)
