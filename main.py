@@ -11,7 +11,7 @@ def draw():
         canvas.create_image(paper.x, paper.y, image=paperImg, anchor=CENTER)
     for rock in g.rocks:
         canvas.create_image(rock.x, rock.y, image=rockImg, anchor=CENTER)
-    g.quadtree.draw(canvas)
+    # g.quadtree.draw(canvas)
 
 def frame():
     draw()
@@ -28,7 +28,7 @@ rockImg = ImageTk.PhotoImage(Image.open("img/rock.png"))
 paperImg = ImageTk.PhotoImage(Image.open("img/paper.png"))
 scissorsImg = ImageTk.PhotoImage(Image.open("img/scissors.png"))
 
-g = Game(300)
+g = Game(50)
 
 frame()
 

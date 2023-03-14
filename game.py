@@ -76,7 +76,7 @@ class Game:
             self.quadtree.insert(paper)
         for scissor in self.scissors:
             nearby = []
-            self.quadtree.query(Rect(scissor.x, scissor.y, 100, 100), nearby)
+            self.quadtree.query(Rect(scissor.x, scissor.y, DIST, DIST), nearby)
             closest = None
             for paper in nearby:
                 if closest is None:
@@ -105,7 +105,7 @@ class Game:
             self.quadtree.insert(rock)
         for paper in self.papers:
             nearby = []
-            self.quadtree.query(Rect(paper.x, paper.y, 100, 100), nearby)
+            self.quadtree.query(Rect(paper.x, paper.y, DIST, DIST), nearby)
             closest = None
             for rock in nearby:
                 if closest is None:
@@ -134,7 +134,7 @@ class Game:
             self.quadtree.insert(scissor)
         for rock in self.rocks:
             nearby = []
-            self.quadtree.query(Rect(rock.x, rock.y, 100, 100), nearby)
+            self.quadtree.query(Rect(rock.x, rock.y, DIST, DIST), nearby)
             closest = None
             for scissor in nearby:
                 if closest is None:
